@@ -25,17 +25,34 @@ class Helper {
       Accept: "application/json"
     };
   }
-  static simpleFetch(endPoint, method, urlPrams) {
+  static checkStatus(response) {
+    if (response.ok) {
+      return response;
+    } else {
+      let error = new Error(response.statusText);
+      error = response;
+      throw error;
+    }
+  }
+  static simpleFetch(endpoint, method, urlParams) {
     let requestData = {
       method,
       headers: Helper.headers()
     };
     return fetch(
-      `${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(
-        urlPrams
+      `${Helper.baseURL()}${endpoint}?${Helper.auth()}&${Helper.urlBuilder(
+        urlParams
       )}`,
       requestData
-    ).then(res => res.json());
+    )
+      .then(Helper.checkStatus)
+      .then(response => response.json())
+      .catch(error => {
+        alert(
+          "An error occurred while trying to fetch data from Foursquare - Error Code of: " +
+            error.response
+        );
+      });
   }
 }
 

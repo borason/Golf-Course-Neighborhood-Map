@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class ListItem extends Component {
+export default class Places extends Component {
   render() {
     return (
       <li
@@ -15,7 +15,7 @@ export default class ListItem extends Component {
           }
           alt={this.props.categories[0].name}
         />
-        <h4 className="venueName">{this.props.name}</h4>
+        <p className="placeName">{this.props.name}</p>
       </li>
     );
   }

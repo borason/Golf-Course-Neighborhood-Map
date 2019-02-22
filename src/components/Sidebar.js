@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import VenueList from "./VenueList";
+import PlacesList from "./PlacesList";
 
 export default class SideBar extends Component {
   constructor() {
@@ -44,7 +44,7 @@ export default class SideBar extends Component {
           placeholder={"Filter Venues"}
           onChange={this.handleChange}
         />
-        <VenueList
+        <PlacesList
           {...this.props}
           venues={this.handleFilterVenues()}
           handleListItemClick={this.props.handleListItemClick}

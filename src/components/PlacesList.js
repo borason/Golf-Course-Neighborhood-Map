@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import ListItem from "./ListItem";
+import Places from "./Places";
 
-export default class VenueList extends Component {
+export default class PlacesList extends Component {
   render() {
     return (
-      <ul className="venueList">
+      <ul className="placesList">
         {this.props.venues &&
           this.props.venues.map((venue, index) => (
-            <ListItem
+            <Places
               key={index}
               {...venue}
               handleListItemClick={this.props.handleListItemClick}

@@ -37,10 +37,16 @@ const MyMapComponent = withScriptjs(
                         }`}
                         alt={"Venue"}
                       />
-                      <p>{venueInfo.name}</p>
-                      <p>{venueInfo.location.address}</p>
-                      <p>{venueInfo.location.city}</p>
-                      <p>{venueInfo.contact.formattedPhone}</p>
+                      <div
+                        className="sideBarInfo"
+                        aria-label="location information"
+                      >
+                        <p>{venueInfo.name}</p>
+                        <p>{venueInfo.location.address}</p>
+                        <p>{venueInfo.location.city}</p>
+                        <p>{venueInfo.contact.formattedPhone}</p>
+                        <p>Rating: {venueInfo.rating} out of 10</p>
+                      </div>
                     </React.Fragment>
                   </InfoWindow>
                 )}
