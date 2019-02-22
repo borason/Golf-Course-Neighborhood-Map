@@ -4,7 +4,7 @@ export default class Places extends Component {
   render() {
     return (
       <li
-        className="listItem"
+        className="listPlaces"
         onClick={() => this.props.handleListItemClick(this.props)}
       >
         <img

@@ -19,12 +19,12 @@ export default class SideBar extends Component {
     return this.props.venues;
   };
 
-  handleChange = e => {
-    this.setState({ query: e.target.value });
+  handleChange = event => {
+    this.setState({ query: event.target.value });
     const markers = this.props.venues.map(venue => {
       const isMatched = venue.name
         .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+        .includes(event.target.value.toLowerCase());
       const marker = this.props.markers.find(marker => marker.id === venue.id);
       if (isMatched) {
         marker.isVisible = true;

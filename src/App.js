@@ -17,31 +17,6 @@ class App extends Component {
     };
   }
 
-  handleMarkerClick = marker => {
-    this.closeAllMarkers();
-    marker.isOpen = true;
-    this.setState({ marker: (this.state.markers, marker) });
-    const venue = this.state.venues.find(venue => venue.id === marker.id);
-    API.getVenueDetails(marker.id).then(res => {
-      const newVenue = Object.assign(venue, res.response.venue);
-      this.setState({ venues: Object.assign(this.state.venues, newVenue) });
-    });
-  };
-
-  handleListItemClick = venue => {
-    const marker = this.state.markers.find(marker => marker.id === venue.id);
-    this.handleMarkerClick(marker);
-    console.log(venue);
-  };
-
-  closeAllMarkers = () => {
-    const markers = this.state.markers.map(marker => {
-      marker.isOpen = false;
-      return marker;
-    });
-    this.setState({ markers: Object.assign(this.state.markers, markers) });
-  };
-
   componentDidMount() {
     API.search({
       near: "Salt Lake City, UT",
@@ -67,6 +42,31 @@ class App extends Component {
       console.log(results);
     });
   }
+
+  handleMarkerClick = marker => {
+    this.closeAllMarkers();
+    marker.isOpen = true;
+    this.setState({ marker: (this.state.markers, marker) });
+    const venue = this.state.venues.find(venue => venue.id === marker.id);
+    API.getVenueDetails(marker.id).then(res => {
+      const newVenue = Object.assign(venue, res.response.venue);
+      this.setState({ venues: Object.assign(this.state.venues, newVenue) });
+    });
+  };
+
+  handleListItemClick = venue => {
+    const marker = this.state.markers.find(marker => marker.id === venue.id);
+    this.handleMarkerClick(marker);
+    console.log(venue);
+  };
+
+  closeAllMarkers = () => {
+    const markers = this.state.markers.map(marker => {
+      marker.isOpen = false;
+      return marker;
+    });
+    this.setState({ markers: Object.assign(this.state.markers, markers) });
+  };
 
   render() {
     return (
