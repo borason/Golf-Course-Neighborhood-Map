@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Map from "./components/Map";
 import "./App.css";
-import SquareAPI from "./API";
+import API from "./API/API";
 import SideBar from "./components/Sidebar";
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     marker.isOpen = true;
     this.setState({ marker: (this.state.markers, marker) });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
-    SquareAPI.getVenueDetails(marker.id).then(res => {
+    API.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
       this.setState({ venues: Object.assign(this.state.venues, newVenue) });
     });
@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    SquareAPI.search({
+    API.search({
       near: "Salt Lake City, UT",
       query: "coffee",
       limit: 10
