@@ -31,7 +31,9 @@ const MyMapComponent = withScriptjs(
                 {marker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                     <React.Fragment>
+                      <h3>FourSquare Information</h3>
                       <img
+                        className="bestPhoto"
                         src={`${venueInfo.bestPhoto.prefix}200x200${
                           venueInfo.bestPhoto.suffix
                         }`}

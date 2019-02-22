@@ -6,6 +6,19 @@
   flex-flow: row nowrap;
 }
 
+.bestPhoto {
+  border-radius: 15px;
+}
+
+.header {
+  height: 10%;
+  width: 100%;
+  background: blue;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
 .sideBar {
   width: 25%;
   display: block !important;

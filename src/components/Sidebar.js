@@ -41,7 +41,7 @@ export default class SideBar extends Component {
         <input
           type={"search"}
           id={"search"}
-          placeholder={"Filter Venues"}
+          placeholder={"Filter Coffee Shops"}
           onChange={this.handleChange}
         />
         <PlacesList
