@@ -42,6 +42,7 @@ const MyMapComponent = withScriptjs(
                     <InfoWindow>
                       <React.Fragment>
                         <h3 className="infoWindowTitle">Coffeeshop Details</h3>
+                        <h4 className="infoWindowFS">Powered By FourSquare</h4>
                         <img
                           className="bestPhoto"
                           src={`${venueInfo.bestPhoto.prefix}300x200${

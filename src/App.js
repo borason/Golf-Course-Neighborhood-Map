@@ -77,7 +77,6 @@ class App extends Component {
           {...this.state}
           handleListItemClick={this.handleListItemClick}
         />
-
         <Map
           aria-label="Map"
           {...this.state}

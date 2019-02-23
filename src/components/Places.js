@@ -4,7 +4,7 @@ export default class Places extends Component {
   render() {
     return (
       <li
-        className="listPlaces"
+        className="places"
         onClick={() => this.props.handleListItemClick(this.props)}
       >
         <div className="initial">{this.props.name.charAt(0)}</div>

@@ -4,6 +4,16 @@
   width: 100vw;
   display: flex;
   flex-flow: row nowrap;
+
+}
+
+#title {
+  height: 10%;
+}
+
+header {
+  height: 10%;
+  width: 75%;
 }
 
 .bestPhoto {
@@ -16,6 +26,7 @@
   width: 25%;
   display: block !important;
   background-color: rgba(184, 115, 51, 0.1);
+  margin-right: 0;
 }
 
 input {
@@ -43,13 +54,19 @@ input {
 
 .infoWindowTitle {
   font-size: 1.5rem;
+  padding-bottom: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+
+.infoWindowFS {
+  margin-top: 0;
 }
 
 li {
   list-style: none;
   padding: 0.5rem;
   box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.3);
-  height: 3.7rem;
+  height: 3.2rem;
   vertical-align: middle;
   cursor: pointer;
   background-color: rgba(0, 128, 128, 0.6);
@@ -73,7 +90,7 @@ ul {
   padding-bottom: 0.4rem;
 }
 
-.listPlaces {
+.places {
   text-align: left;
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;

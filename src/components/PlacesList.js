@@ -4,16 +4,19 @@ import Places from "./Places";
 export default class PlacesList extends Component {
   render() {
     return (
-      <ul className="placesList">
-        {this.props.venues &&
-          this.props.venues.map((venue, index) => (
-            <Places
-              key={index}
-              {...venue}
-              handleListItemClick={this.props.handleListItemClick}
-            />
-          ))}
-      </ul>
+      <div id="listView">
+        <ul className="placesList">
+          {this.props.venues &&
+            this.props.venues.map((venue, index) => (
+              <Places
+                key={index}
+                {...venue}
+                handleListItemClick={this.props.handleListItemClick}
+              />
+            ))}
+          <h3>Information Provided by FourSquare</h3>
+        </ul>
+      </div>
     );
   }
 }
