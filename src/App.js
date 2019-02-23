@@ -1,3 +1,4 @@
+/* global google*/
 import React, { Component } from "react";
 import Map from "./components/Map";
 import "./App.css";
@@ -46,6 +47,7 @@ class App extends Component {
   handleMarkerClick = marker => {
     this.closeAllMarkers();
     marker.isOpen = true;
+    google.maps.Animation = "bounce";
     this.setState({ marker: (this.state.markers, marker) });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     API.getVenueDetails(marker.id).then(res => {

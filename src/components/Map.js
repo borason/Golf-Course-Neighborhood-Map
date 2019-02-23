@@ -1,3 +1,4 @@
+/* global google*/
 import React from "react";
 import {
   withScriptjs,
@@ -19,7 +20,7 @@ const MyMapComponent = withScriptjs(
         {props.markers &&
           props.markers
             .filter(marker => marker.isVisible)
-            .map((marker, index) => {
+            .map((marker, index, arr) => {
               const venueInfo = props.venues.find(
                 venue => venue.id === marker.id
               );
@@ -31,6 +32,11 @@ const MyMapComponent = withScriptjs(
                     lng: Number(marker.lng)
                   }}
                   onClick={() => props.handleMarkerClick(marker)}
+                  animation={
+                    arr.length === 1
+                      ? google.maps.Animation.BOUNCE
+                      : google.maps.Animation.DROP
+                  }
                 >
                   {marker.isOpen && venueInfo.bestPhoto && (
                     <InfoWindow>

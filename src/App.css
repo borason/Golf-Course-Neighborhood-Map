@@ -34,7 +34,7 @@ input {
 .venueName {
   font-size: 2rem;
   text-shadow: 2px 2px 2px #000000;
-  color: #CAECE5;
+  color: #caece5;
 }
 
 .venueInfo {
@@ -75,6 +75,8 @@ ul {
 
 .listPlaces {
   text-align: left;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .sideBarInfo {
@@ -90,6 +92,11 @@ p {
   margin-block-end: 0.1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+}
+
+.initial {
+  font-family: "Bungee Shade", cursive;
+  font-size: 4rem;
 }
 
 #map-canvas {
@@ -172,5 +179,4 @@ p {
   #containerElement {
     width: 100% !important;
   }
-
 }

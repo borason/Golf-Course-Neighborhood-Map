@@ -56,7 +56,7 @@ class Helper {
   }
 }
 
-export default class SquareAPI {
+export default class API {
   static search(urlPrams) {
     return Helper.simpleFetch("/venues/search", "GET", urlPrams);
   }
@@ -67,3 +67,32 @@ export default class SquareAPI {
     return Helper.simpleFetch(`/venues/${VENUE_ID}/photos`, "GET");
   }
 }
+// export default class API {
+//   url =
+//     "https://api.foursquare.com/v2/venues/search?client_id=VUYQFRISU5Z0THJZYM4IWOCW5QDJNWFU1SCKFGW021JSV02M&client_secret=4NNARBYIRNA3V15ANQPN5W102NHWPNM5JWD0EZ522W14XYBE&limit=10&near=84101&query=coffee&v=20190222";
+
+//   getVenueInfo = id =>
+//     fetch(
+//       "https://api.foursquare.com/v2/venues/search?client_id=VUYQFRISU5Z0THJZYM4IWOCW5QDJNWFU1SCKFGW021JSV02M&client_secret=4NNARBYIRNA3V15ANQPN5W102NHWPNM5JWD0EZ522W14XYBE&limit=10&near=84101&query=coffee&v=20190222"
+//     )
+//       .then(console.log("fetch successful"))
+//       .then(response => {
+//         if (!response.ok) {
+//           throw Error(
+//             "Error in getting Venue Detail Response from FourSquare API"
+//           );
+//         }
+//         return response;
+//       })
+//       .then(data => data.json())
+//       .then(data => data)
+//       .then(data => console.log(data))
+//       .catch(error => {
+//         console.log(
+//           "Error in Retrieving Venue Details from FourSquare: " +
+//             error +
+//             ": " +
+//             error.message
+//         );
+//       });
+// }
