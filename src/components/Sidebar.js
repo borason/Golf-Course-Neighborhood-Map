@@ -38,6 +38,7 @@ export default class SideBar extends Component {
   render() {
     return (
       <div className="sideBar">
+        <h5>Information Provided by FourSquare</h5>
         <input
           type={"search"}
           id={"search"}

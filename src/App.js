@@ -4,6 +4,7 @@ import Map from "./components/Map";
 import "./App.css";
 import API from "./API/API";
 import SideBar from "./components/Sidebar";
+import { slide as Menu } from "react-burger-menu";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
-      zoom: 12,
+      zoom: 10,
+      defaultCenter: { lat: 40.7629, lng: -111.8968 },
       updateSuperState: obj => {
         this.setState(obj);
       }
@@ -20,8 +22,8 @@ class App extends Component {
 
   componentDidMount() {
     API.search({
-      near: "Salt Lake City, UT",
-      query: "coffee",
+      near: "84101",
+      categoryId: "4bf58dd8d48988d178941735",
       limit: 10
     }).then(results => {
       const { venues } = results.response;
@@ -44,6 +46,13 @@ class App extends Component {
     });
   }
 
+  handleWindowClose = () => {
+    this.setState({
+      // zoom: 13,
+      center: { lat: 40.7629, lng: -111.8968 }
+    });
+  };
+
   handleMarkerClick = marker => {
     this.closeAllMarkers();
     marker.isOpen = true;
@@ -52,7 +61,10 @@ class App extends Component {
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     API.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
-      this.setState({ venues: Object.assign(this.state.venues, newVenue) });
+      this.setState({
+        venues: Object.assign(this.state.venues, newVenue)
+        // zoom: 10
+      });
     });
   };
 
@@ -60,6 +72,7 @@ class App extends Component {
     const marker = this.state.markers.find(marker => marker.id === venue.id);
     this.handleMarkerClick(marker);
     console.log(venue);
+    this.setState({ zoom: 12 });
   };
 
   closeAllMarkers = () => {
@@ -67,20 +80,26 @@ class App extends Component {
       marker.isOpen = false;
       return marker;
     });
-    this.setState({ markers: Object.assign(this.state.markers, markers) });
+    this.setState({
+      markers: Object.assign(this.state.markers, markers)
+    });
   };
 
   render() {
     return (
       <div className="App" role="main">
-        <SideBar
-          {...this.state}
-          handleListItemClick={this.handleListItemClick}
-        />
+        <Menu noOverlay width={"150"} isOpen={true}>
+          <SideBar
+            {...this.state}
+            handleListItemClick={this.handleListItemClick}
+          />
+        </Menu>
         <Map
           aria-label="Map"
           {...this.state}
           handleMarkerClick={this.handleMarkerClick}
+          handleWindowClose={this.handleWindowClose}
+          phone={this.venuePhone}
         />
       </div>
     );

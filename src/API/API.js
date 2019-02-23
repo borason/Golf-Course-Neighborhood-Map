@@ -48,10 +48,8 @@ class Helper {
       .then(Helper.checkStatus)
       .then(response => response.json())
       .catch(error => {
-        alert(
-          "An error occurred while trying to fetch data from Foursquare - Error Code of: " +
-            error.response
-        );
+        alert("An error occurred while trying to fetch data from Foursquare");
+        console.log(error);
       });
   }
 }

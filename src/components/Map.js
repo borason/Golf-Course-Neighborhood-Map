@@ -11,12 +11,7 @@ import {
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (
     <div id="map-canvas">
-      <GoogleMap
-        defaultZoom={8}
-        zoom={props.zoom}
-        defaultCenter={{ lat: 40.7608, lng: -111.891 }}
-        center={props.center}
-      >
+      <GoogleMap defaultZoom={20} zoom={props.zoom} center={props.center}>
         {props.markers &&
           props.markers
             .filter(marker => marker.isVisible)
@@ -39,13 +34,13 @@ const MyMapComponent = withScriptjs(
                   }
                 >
                   {marker.isOpen && venueInfo.bestPhoto && (
-                    <InfoWindow>
+                    <InfoWindow onCloseClick={() => props.handleWindowClose()}>
                       <React.Fragment>
-                        <h3 className="infoWindowTitle">Coffeeshop Details</h3>
+                        <h3 className="infoWindowTitle">Dentist Office</h3>
                         <h4 className="infoWindowFS">Powered By FourSquare</h4>
                         <img
                           className="bestPhoto"
-                          src={`${venueInfo.bestPhoto.prefix}300x200${
+                          src={`${venueInfo.bestPhoto.prefix}250x200${
                             venueInfo.bestPhoto.suffix
                           }`}
                           alt={"Venue"}
@@ -80,16 +75,11 @@ export default class Map extends React.Component {
         {...this.props}
         isMarkerShown
         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAAK2RtwOt45mXjQvGA3iC8dXJjUCHnyAY"
-        loadingElement={
-          <div id={"loadingElement"} style={{ height: `100%` }} />
-        }
+        loadingElement={<div style={{ height: `100%` }} />}
         containerElement={
-          <div
-            id={"containerElement"}
-            style={{ height: `100%`, width: `75%` }}
-          />
+          <div style={{ height: ` 900px`, width: `100%`, float: "right" }} />
         }
-        mapElement={<div id={"mapElement"} style={{ height: `100%` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
       />
     );
   }

@@ -14,7 +14,6 @@ export default class PlacesList extends Component {
                 handleListItemClick={this.props.handleListItemClick}
               />
             ))}
-          <h3>Information Provided by FourSquare</h3>
         </ul>
       </div>
     );
