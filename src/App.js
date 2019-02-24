@@ -18,6 +18,7 @@ class App extends Component {
       }
     };
   }
+
   // Once map is loaded, app fetches data from Foursquare
   componentDidMount() {
     API.search({
@@ -43,6 +44,7 @@ class App extends Component {
       });
     });
   }
+
   // recenters map when infowindow is closed
   handleWindowClose = () => {
     this.setState({
