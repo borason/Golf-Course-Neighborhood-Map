@@ -15,9 +15,10 @@ To use this app:
 
 ## Dependencies
 
+- This app uses the [Foursquare Places API](https://developer.foursquare.com/docs/api).
 - This app was initialized with [create-react-app](https://facebook.github.io/create-react-app/).
 - The map was created with [react-google-maps](https://tomchentw.github.io/react-google-maps/).
-- The sidebar was created with [react-burger-menu](https://github.com/negomi/react-burger-menu)
+- The sidebar was created with [react-burger-menu](https://github.com/negomi/react-burger-menu).
 
 ## Credit
 
