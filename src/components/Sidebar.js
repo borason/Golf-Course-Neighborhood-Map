@@ -8,7 +8,7 @@ export default class SideBar extends Component {
       query: ""
     };
   }
-
+  //filters venues fetch from Foursquare based on the search string
   handleFilterVenues = () => {
     if (this.state.query.trim() !== "") {
       const venues = this.props.venues.filter(venue =>
@@ -42,13 +42,13 @@ export default class SideBar extends Component {
         <input
           type={"search"}
           id={"search"}
-          placeholder={"Filter Coffee Shops"}
+          placeholder={"Filter Golf Courses"}
           onChange={this.handleChange}
         />
         <PlacesList
           {...this.props}
           venues={this.handleFilterVenues()}
-          handleListItemClick={this.props.handleListItemClick}
+          handleSidebarItemClick={this.props.handleSidebarItemClick}
         />
       </div>
     );

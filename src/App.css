@@ -6,6 +6,73 @@
   width: 100%;
 }
 
+/* Styling for Map and Infowindow */
+
+#map-canvas {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  max-width: none;
+}
+
+#map-canvas img {
+  max-width: none !important;
+}
+
+
+.bestPhoto {
+  border-radius: 5px;
+  filter: drop-shadow(4px 4px 2px #222);
+  margin-bottom: 0.8rem;
+}
+
+.venueName {
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px #000000;
+  color: #caece5;
+}
+
+.venueInfo {
+  font-size: 1.1rem;
+}
+
+.infoWindowTitle {
+  font-size: 1.5rem;
+  padding-bottom: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+
+.infoWindowFS {
+  margin-top: 0;
+}
+
+.gm-style-iw {
+  width: 250px !important;
+  top: 15px !important;
+  left: 50px !important;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+  border: 1px solid rgba(72, 181, 233, 0.6);
+  border-radius: 2px 2px 10px 10px;
+}
+
+.iw-content img {
+  float: right;
+  margin: 0 5px 5px 10px;
+}
+
+.iw-subTitle {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+
+/* Styling for sidebar and burger icon */
+
+#search {
+  color: black;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -37,9 +104,9 @@
 }
 
 /*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
@@ -74,11 +141,31 @@ Note: Beware of modifying this element as it can break the animations - you shou
   opacity: 0 !important;
 }
 
-.bestPhoto {
-  border-radius: 5px;
-  filter: drop-shadow(4px 4px 2px #222);
-  margin-bottom: 0.8rem;
+.placeName {
+  padding-left: 1rem;
+  font-size: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
 }
+
+.places {
+  text-align: left;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.sideBarInfo {
+  font-family: "Staatliches", cursive;
+  font-size: 1rem;
+  padding: 0;
+  margin-top: 0.2rem;
+}
+
+.initial {
+  font-family: "Bungee Shade", cursive;
+  font-size: 3rem;
+}
+
 
 input {
   width: 90.5% !important;
@@ -90,30 +177,6 @@ input {
   margin-left: 1rem;
   margin-top: 1rem;
   font-weight: bold;
-}
-
-#search {
-  color: black;
-}
-
-.venueName {
-  font-size: 2rem;
-  text-shadow: 2px 2px 2px #000000;
-  color: #caece5;
-}
-
-.venueInfo {
-  font-size: 1.1rem;
-}
-
-.infoWindowTitle {
-  font-size: 1.5rem;
-  padding-bottom: 0.1rem;
-  margin-bottom: 0.1rem;
-}
-
-.infoWindowFS {
-  margin-top: 0;
 }
 
 li {
@@ -137,67 +200,10 @@ ul {
   padding-inline-start: 0;
 }
 
-.placeName {
-  padding-left: 1rem;
-  font-size: 1rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-}
-
-.places {
-  text-align: left;
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.sideBarInfo {
-  font-family: "Staatliches", cursive;
-  font-size: 1rem;
-  padding: 0;
-  margin-top: 0.2rem;
-}
-
 p {
   display: block;
   margin-block-start: 0.1em;
   margin-block-end: 0.1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-}
-
-.initial {
-  font-family: "Bungee Shade", cursive;
-  font-size: 3rem;
-}
-
-#map-canvas {
-  margin: 0;
-  padding: 0;
-  height: 400px;
-  max-width: none;
-}
-
-#map-canvas img {
-  max-width: none !important;
-}
-
-.gm-style-iw {
-  width: 250px !important;
-  top: 15px !important;
-  left: 50px !important;
-  background-color: #fff;
-  box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
-  border: 1px solid rgba(72, 181, 233, 0.6);
-  border-radius: 2px 2px 10px 10px;
-}
-
-.iw-content img {
-  float: right;
-  margin: 0 5px 5px 10px;
-}
-
-.iw-subTitle {
-  font-size: 16px;
-  font-weight: 700;
-  padding: 5px 0;
 }

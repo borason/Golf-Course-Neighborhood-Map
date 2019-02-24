@@ -11,7 +11,7 @@ export default class PlacesList extends Component {
               <Places
                 key={index}
                 {...venue}
-                handleListItemClick={this.props.handleListItemClick}
+                handleSidebarItemClick={this.props.handleSidebarItemClick}
               />
             ))}
         </ul>

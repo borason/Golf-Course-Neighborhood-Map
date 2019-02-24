@@ -1,4 +1,3 @@
-/* global google*/
 import React, { Component } from "react";
 import Map from "./components/Map";
 import "./App.css";
@@ -19,11 +18,11 @@ class App extends Component {
       }
     };
   }
-
+  // Once map is loaded, app fetches data from Foursquare
   componentDidMount() {
     API.search({
       near: "84101",
-      categoryId: "4bf58dd8d48988d178941735",
+      categoryId: "4bf58dd8d48988d1e6941735",
       limit: 10
     }).then(results => {
       const { venues } = results.response;
@@ -42,40 +41,38 @@ class App extends Component {
         center,
         markers
       });
-      console.log(results);
     });
   }
-
+  // recenters map when infowindow is closed
   handleWindowClose = () => {
     this.setState({
-      // zoom: 13,
-      center: { lat: 40.7629, lng: -111.8968 }
+      center: { lat: 40.7629, lng: -111.8968 },
+      zoom: 10
     });
   };
 
+  // when map marker is clicked, closes any open info windows, and then fetches information for that venue
   handleMarkerClick = marker => {
-    this.closeAllMarkers();
+    this.closeOpenInfoWindows();
     marker.isOpen = true;
-    google.maps.Animation = "bounce";
     this.setState({ marker: (this.state.markers, marker) });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     API.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
       this.setState({
         venues: Object.assign(this.state.venues, newVenue)
-        // zoom: 10
       });
     });
   };
 
-  handleListItemClick = venue => {
+  // when name of venue is clicked on sidebar, it assigns that venue to the corresponding marker and then treats it as if the marker is clicked
+  handleSidebarItemClick = venue => {
     const marker = this.state.markers.find(marker => marker.id === venue.id);
     this.handleMarkerClick(marker);
-    console.log(venue);
-    this.setState({ zoom: 12 });
   };
 
-  closeAllMarkers = () => {
+  // closes any open infowindows
+  closeOpenInfoWindows = () => {
     const markers = this.state.markers.map(marker => {
       marker.isOpen = false;
       return marker;
@@ -91,7 +88,7 @@ class App extends Component {
         <Menu noOverlay width={"150"} isOpen={true}>
           <SideBar
             {...this.state}
-            handleListItemClick={this.handleListItemClick}
+            handleSidebarItemClick={this.handleSidebarItemClick}
           />
         </Menu>
         <Map
@@ -100,6 +97,7 @@ class App extends Component {
           handleMarkerClick={this.handleMarkerClick}
           handleWindowClose={this.handleWindowClose}
           phone={this.venuePhone}
+          role="application"
         />
       </div>
     );

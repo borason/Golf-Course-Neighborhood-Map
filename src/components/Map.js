@@ -7,7 +7,7 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
-
+// react-google-maps package
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (
     <div id="map-canvas">
@@ -36,7 +36,7 @@ const MyMapComponent = withScriptjs(
                   {marker.isOpen && venueInfo.bestPhoto && (
                     <InfoWindow onCloseClick={() => props.handleWindowClose()}>
                       <React.Fragment>
-                        <h3 className="infoWindowTitle">Dentist Office</h3>
+                        <h3 className="infoWindowTitle">Golf Course Details</h3>
                         <h4 className="infoWindowFS">Powered By FourSquare</h4>
                         <img
                           className="bestPhoto"

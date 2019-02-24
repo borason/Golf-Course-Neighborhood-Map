@@ -5,7 +5,7 @@ export default class Places extends Component {
     return (
       <li
         className="places"
-        onClick={() => this.props.handleListItemClick(this.props)}
+        onClick={() => this.props.handleSidebarItemClick(this.props)}
       >
         <div className="initial">{this.props.name.charAt(0)}</div>
         <p className="placeName">{this.props.name}</p>
