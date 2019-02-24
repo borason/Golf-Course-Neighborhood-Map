@@ -19,6 +19,7 @@ const MyMapComponent = withScriptjs(
               const venueInfo = props.venues.find(
                 venue => venue.id === marker.id
               );
+              //for every marker, infowindow information is fetched and appended
               return (
                 <Marker
                   key={index}
