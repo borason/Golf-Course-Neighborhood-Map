@@ -12,6 +12,8 @@ To use this app:
 3. Type `npm start`.
 4. A new browser tab should open with the app.
 5. If not, enter `localhost:3000` into your browser address bar.
+   ### Production build
+   To build a production version of this app enter `npm build` in the terminal. This enables the service worker implementation that is provided by create-react-app.
 
 ## Dependencies
 
