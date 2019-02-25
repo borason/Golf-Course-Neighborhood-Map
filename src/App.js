@@ -4,6 +4,7 @@ import "./App.css";
 import API from "./API/API";
 import SideBar from "./components/Sidebar";
 import { slide as Menu } from "react-burger-menu";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class App extends Component {
     });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     marker.animation = 1;
-    venue.animation = 1;
+    // venue.animation = 1;
     API.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
       this.setState({
@@ -91,20 +92,22 @@ class App extends Component {
   render() {
     return (
       <div className="App" role="main">
-        <Menu noOverlay width={"150"} isOpen={true}>
-          <SideBar
+        <ErrorBoundary>
+          <Menu noOverlay width={"150"} isOpen={true}>
+            <SideBar
+              {...this.state}
+              handleSidebarItemClick={this.handleSidebarItemClick}
+            />
+          </Menu>
+          <Map
+            aria-label="Map"
             {...this.state}
-            handleSidebarItemClick={this.handleSidebarItemClick}
+            handleMarkerClick={this.handleMarkerClick}
+            handleWindowClose={this.handleWindowClose}
+            phone={this.venuePhone}
+            role="application"
           />
-        </Menu>
-        <Map
-          aria-label="Map"
-          {...this.state}
-          handleMarkerClick={this.handleMarkerClick}
-          handleWindowClose={this.handleWindowClose}
-          phone={this.venuePhone}
-          role="application"
-        />
+        </ErrorBoundary>
       </div>
     );
   }
