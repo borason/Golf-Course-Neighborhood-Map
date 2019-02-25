@@ -1,4 +1,3 @@
-/* global google*/
 import React from "react";
 import {
   withScriptjs,
@@ -29,9 +28,9 @@ const MyMapComponent = withScriptjs(
                   }}
                   onClick={() => props.handleMarkerClick(marker)}
                   animation={
-                    arr.length === 1
-                      ? google.maps.Animation.BOUNCE
-                      : google.maps.Animation.DROP
+                    marker.isOpen === true
+                      ? window.google.maps.Animation.BOUNCE
+                      : window.google.maps.Animation.DROP
                   }
                 >
                   {marker.isOpen && venueInfo.bestPhoto && (

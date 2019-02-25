@@ -57,8 +57,12 @@ class App extends Component {
   handleMarkerClick = marker => {
     this.closeOpenInfoWindows();
     marker.isOpen = true;
-    this.setState({ marker: (this.state.markers, marker) });
+    this.setState({
+      marker: (this.state.markers, marker)
+    });
     const venue = this.state.venues.find(venue => venue.id === marker.id);
+    marker.animation = 1;
+    venue.animation = 1;
     API.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
       this.setState({
