@@ -44,6 +44,7 @@ export default class SideBar extends Component {
           id={"search"}
           placeholder={"Filter Golf Courses"}
           onChange={this.handleChange}
+          aria-label={"search"}
         />
         <PlacesList
           {...this.props}
