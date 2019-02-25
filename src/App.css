@@ -28,8 +28,19 @@
 
 .venueName {
   font-size: 2rem;
-  text-shadow: 2px 2px 2px #000000;
-  color: #caece5;
+  text-shadow: 0 0.5px 0 #ccc,
+    0 1px 0 #c9c9c9,
+    0 1.5px 0 #bbb,
+    0 2px 0 #b9b9b9,
+    0 2.5px 0 #aaa,
+    0 3px 1px rgba(0, 0, 0, .1),
+    0 0 2.5px rgba(0, 0, 0, .1),
+    0 0.5px 1.5px rgba(0, 0, 0, .3),
+    0 1.5px 2.5px rgba(0, 0, 0, .2),
+    0 2.5px 5px rgba(0, 0, 0, .25),
+    0 5px 5px rgba(0, 0, 0, .2),
+    0 10px 10px rgba(0, 0, 0, .15);
+  color: #050505;
 }
 
 .venueInfo {
@@ -48,12 +59,17 @@
 
 .gm-style-iw {
   width: 250px !important;
-  top: 15px !important;
+  top: 10px !important;
   left: 50px !important;
   background-color: #fff;
   box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
   border: 1px solid rgba(72, 181, 233, 0.6);
   border-radius: 2px 2px 10px 10px;
+}
+
+/* container for google map error message */
+.gm-err-content {
+  padding-left: 50% !important;
 }
 
 .iw-content img {
@@ -69,8 +85,21 @@
 
 /* Styling for sidebar and burger icon */
 
-#search {
+#search,
+#fsInfo {
   color: black;
+}
+
+/* Code taken from https://www.w3.org/WAI/tutorials/forms/labels/ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* Position and sizing of burger button */
@@ -146,6 +175,8 @@
   font-size: 1rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
 
 .places {
@@ -164,6 +195,8 @@
 .initial {
   font-family: "Bungee Shade", cursive;
   font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -186,7 +219,7 @@ li {
   height: 3.2rem;
   vertical-align: middle;
   cursor: pointer;
-  background-color: rgba(0, 128, 128, 0.6);
+  background-color: rgba(3, 136, 136, 0.6);
   color: #fbf8ea;
   margin-top: 0.1rem;
   display: flex;

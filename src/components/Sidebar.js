@@ -38,13 +38,16 @@ export default class SideBar extends Component {
   render() {
     return (
       <div className="sideBar">
-        <h5>Information Provided by FourSquare</h5>
+        <h5 id="fsInfo">Information Provided by FourSquare</h5>
+        <label htmlFor="search" className="visuallyhidden">
+          Search:
+        </label>
         <input
-          type={"search"}
-          id={"search"}
+          type="search"
+          id="search"
+          name="search"
           placeholder={"Filter Golf Courses"}
           onChange={this.handleChange}
-          aria-label={"search"}
         />
         <PlacesList
           {...this.props}

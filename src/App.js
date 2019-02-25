@@ -92,13 +92,13 @@ class App extends Component {
   render() {
     return (
       <div className="App" role="main">
+        <Menu noOverlay width={"150"} isOpen={true}>
+          <SideBar
+            {...this.state}
+            handleSidebarItemClick={this.handleSidebarItemClick}
+          />
+        </Menu>
         <ErrorBoundary>
-          <Menu noOverlay width={"150"} isOpen={true}>
-            <SideBar
-              {...this.state}
-              handleSidebarItemClick={this.handleSidebarItemClick}
-            />
-          </Menu>
           <Map
             aria-label="Map"
             {...this.state}
